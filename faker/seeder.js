@@ -15,7 +15,7 @@ for (let i = 0; i < 100; i++) {
     avgScore: faker.random.number(5),
     reviewCount: faker.random.number(100),
     title: `${faker.company.catchPhraseAdjective()} ${faker.company.bsAdjective()} ${faker.commerce.productName()}`
-  }
+  };
   randomItems.push(itemObj);
 }
 
@@ -23,7 +23,7 @@ for (let i = 0; i < 500; i++) {
   let imageObj = {
     photoDescription: `${faker.company.bsAdjective()} ${faker.random.word()}`,
     srcURL: photos[Math.floor(Math.random() * photos.length)]
-  }
+  };
   randomImages.push(imageObj);
 }
 
@@ -49,7 +49,7 @@ for (let i = 0; i < randomItems.length; i++) {
       // console.log(res);
       console.log('new entry logged in db table items');
     }
-  })
+  });
 }
 
 

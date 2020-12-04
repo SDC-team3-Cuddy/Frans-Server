@@ -1,7 +1,7 @@
 # Project Name
 
 > Guitar-Centaur-Carousel-Service (Standalone Component Version)
-
+> SDC backend and databases expansion (Frans)
 ## Related Projects
 
   - https://github.com/hrr49-tully
@@ -19,6 +19,12 @@
 1. [Requirements](#requirements)
 1. [Development](#development)
 
+## CRUD API
+Action	METHOD	URL
+Create an item	POST	/api/items
+Retrieve an item	GET	/api/items
+Change an item details	/api/items
+Remove an item	DELETE	/api/items
 ## Usage
 
 > This is a standalone version of the title card plus photo viewer/carousel component from Guitar Center's UI.

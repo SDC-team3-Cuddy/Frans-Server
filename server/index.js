@@ -26,13 +26,37 @@ app.get('/api/items', async (req, res) => {
   res.end(JSON.stringify(items));
 });
 
+app.post('/api/items', async (req, res) => {
+  var data = {itemNum: req.body.itemNum, POSNum: req.body.POSNum, avgScore: req.body.avgScore, reviewCount: req.body.reviewCount, title: req.body.title};
+  let callback = function(data) {
+  res.end(JSON.stringify(data));
+  }
+  model.insertItems(data, callback);
+})
+
+app.delete('/api/items', async (req, res) => {
+  var data = {itemNum: req.body.itemNum, POSNum: req.body.POSNum, avgScore: req.body.avgScore, reviewCount: req.body.reviewCount, title: req.body.title};
+  let callback = function(data) {
+  res.end(JSON.stringify(data));
+  }
+  model.deleteItems(data, callback);
+})
+
+app.update('/api/items', async (req, res) => {
+  var data = {itemNum: req.body.itemNum, POSNum: req.body.POSNum, avgScore: req.body.avgScore, reviewCount: req.body.reviewCount, title: req.body.title};
+  let callback = function(data) {
+  res.end(JSON.stringify(data));
+  }
+  model.updateItems(data, callback);
+})
 //endpoint to get photos by item id
 
 app.post('/api/photos', async (req, res) => {
-  let itemID = req.body.itemID;
-  let photos = await model.getPhotosByItemID(itemID);
-  photos = model.formatPhotoData(photos);
-  res.end(JSON.stringify(photos));
+  var data = {itemNum: req.body.itemNum, POSNum: req.body.POSNum, avgScore: req.body.avgScore, reviewCount: req.body.reviewCount, title: req.body.title};
+  let callback = function(data) {
+  res.end(JSON.stringify(data));
+  }
+  model.insertItems(data, callback);
 })
 
 app.listen(port, () => {

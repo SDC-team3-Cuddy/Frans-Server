@@ -32,7 +32,6 @@ module.exports = {
       });
     });
   },
-
   getPhotosByItemID: (itemID) => {
     return new Promise ((resolve, reject) => {
       let query = `SELECT * FROM photos WHERE itemID = ${itemID}`;
@@ -49,5 +48,20 @@ module.exports = {
         srcURL: photo.srcURL
       }
     })
+  },
+  insertItems: (data, callback) => {
+    db.query('INSERT INTO items SET ?', data, function (err, data) {
+      callback(data);
+    });
+  },
+  deleteItems: (data, callback) => {
+    db.query('DELETE FROM items WHERE title= ' + data.title, data, function (err, data) {
+      callback(data);
+    });
+  },
+  updateItems: (data, callback) => {
+    db.query('UPDATE items SET ? WHERE title= ' + data.title, data, function (err, data) {
+      callback(data);
+    });
   }
 };
