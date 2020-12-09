@@ -5,4 +5,4 @@ module.exports = {
     'https://frans-sdc-bucket.s3.us-east-2.amazonaws.com/SDCImages/yellow-beetle-1366999-639x428.jpg',
     'https://frans-sdc-bucket.s3.us-east-2.amazonaws.com/SDCImages/young-golden-retriever-1404848-639x424.jpg'
   ]
-}
+};

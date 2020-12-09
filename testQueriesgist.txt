@@ -1,0 +1,22 @@
+attempt=# SELECT * FROM items WHERE title=' Grass-roots synergistic Unbranded Fresh Shoes';
+2 Items
+ms:325.639
+
+attempt=# DELETE FROM items WHERE id =10000000;
+DELETE 1
+Time: 24.635 ms
+
+attempt=# INSERT INTO items(itemNum,POSNum,avgScore,reviewCount,photos,title) VALUES (0,0,0,0,'l','l');
+Time: 16.738 ms
+
+attempt=# Select * FROM items WHERE id=999999;
+   id   | itemnum | posnum | avgscore | reviewcount |                                                  photos                                                   |                 title
+--------+---------+--------+----------+-------------+-----------------------------------------------------------------------------------------------------------+----------------------------------------
+ 999999 |   62492 |  41404 |        1 |          30 |  https://frans-sdc-bucket.s3.us-east-2.amazonaws.com/SDCImages/young-golden-retriever-1404848-639x424.jpg |  Enhanced impactful Tasty Rubber Pants
+(1 row)
+
+Time: 0.344 ms
+
+attempt=# UPDATE items SET itemnum=0 WHERE id=5000;
+UPDATE 1
+Time: 2.305 ms

@@ -21,8 +21,8 @@ module.exports = {
         avgScore: item.avgScore,
         reviewCount: item.reviewCount,
         title: item.title
-      }
-    })
+      };
+    });
   },
   getAllPhotos: () => {
     return new Promise ((resolve, reject) => {
@@ -38,7 +38,7 @@ module.exports = {
       db.query(query, (err, results) => {
         err ? reject(err) : resolve(results);
       });
-    })
+    });
   },
   formatPhotoData: (photos) => {
     return photos.map((photo) => {
@@ -46,8 +46,8 @@ module.exports = {
         id: photo.id,
         itemID: photo.itemID,
         srcURL: photo.srcURL
-      }
-    })
+      };
+    });
   },
   insertItems: (data, callback) => {
     db.query('INSERT INTO items SET ?', data, function (err, data) {
@@ -55,12 +55,12 @@ module.exports = {
     });
   },
   deleteItems: (data, callback) => {
-    db.query('DELETE FROM items WHERE title= ' + data.title, data, function (err, data) {
+    db.query('DELETE FROM items WHERE title=' + data.title, data, function (err, data) {
       callback(data);
     });
   },
   updateItems: (data, callback) => {
-    db.query('UPDATE items SET ? WHERE title= ' + data.title, data, function (err, data) {
+    db.query('UPDATE items SET ? WHERE title=' + data.title, data, function (err, data) {
       callback(data);
     });
   }

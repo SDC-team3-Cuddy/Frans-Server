@@ -4,7 +4,7 @@ import AppStyles from './AppStyles';
 import axios from 'axios';
 import Title from '../title/Title.js';
 import Viewer from '../viewer/Viewer.js';
-
+const port = '/api/';
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -14,32 +14,48 @@ class App extends React.Component {
     }
     this.getItem = this.getItem.bind(this)
     this.getPhotosByItemID = this.getPhotosByItemID.bind(this);
+    this.getItem();
   }
 
   getItem () {
-    let options = {
-      method: 'get',
-      url: '/api/items'
-    }
+    console.log('this is the get request');
+    var id = '8';
+    var self = this;
+    axios.get(port + 'item', {
+      headers: {
+        id: id
+      }
+    }).then(function(data) {
+      console.log(data.data[0]);
+      //self.setState({product: data.data[0]});
+    }).catch(function(err) {
+      console.log(err);
+    });
+    //this.setState({product: self});
+    // let options = {
+    //   method: 'get',
+    //   url: '/api/items',
+    //   headers
+    // }
 
-    axios(options)
-      .then((response) => {
-        let item =  response.data[Math.floor(Math.random() * response.data.length)];
+    // axios(options)
+    //   .then((response) => {
+    //     let item =  response.data[Math.floor(Math.random() * response.data.length)];
 
-        let id = window.location.pathname;
-        if (id.length > 1) {
-          id = id.split('');
-          id.shift();
-          id = Number.parseInt(id.join(''));
-          item = response.data[id]
-        }
+    //     let id = window.location.pathname;
+    //     if (id.length > 1) {
+    //       id = id.split('');
+    //       id.shift();
+    //       id = Number.parseInt(id.join(''));
+    //       item = response.data[id]
+    //     }
 
-        console.log(item);
-        this.setState({
-          item
-        });
-        this.getPhotosByItemID();
-      })
+    //     console.log(item);
+    //     this.setState({
+    //       item
+    //     });
+    //     this.getPhotosByItemID();
+    //   })
 
   }
 
