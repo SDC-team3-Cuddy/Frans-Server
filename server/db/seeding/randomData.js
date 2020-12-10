@@ -9,7 +9,7 @@ var writeStreamItem = fs.createWriteStream(__dirname + '/csv/items.csv', {flags:
 //converts objects into a CSV format
 
 var converttoCSVItem = function (item) {
-  var response = `${item.id}, ${item.itemNum}, ${item.POSNum}, ${item.avgScore}, ${item.reviewCount}, ${item.photos}, ${item.title}\n`;
+  var response = `${item.itemNum}, ${item.POSNum}, ${item.avgScore}, ${item.reviewCount}, ${item.photos}, ${item.title}\n`;
   return response;
 };
 
@@ -17,10 +17,9 @@ var converttoCSVItem = function (item) {
 var populateItems = function (id) {
   var photo = photos[Math.floor(Math.random() * photos.length)];
   for(var x = 0; x<4; x++){
-    photo.concat((photos[Math.floor(Math.random() * photos.length)] + '|'));
+    photo+= ('|'+ photos[Math.floor(Math.random() * photos.length)] + '|');
   }
   let itemObj = {
-    id: id,
     itemNum: faker.random.number(),
     POSNum: faker.random.number(),
     avgScore: faker.random.number(5),
@@ -33,7 +32,7 @@ var populateItems = function (id) {
 
 //Using the write stream to create my formatted csv files
 var writetoItems = function() {
-  var header = 'id,itemNum,POSNum,avgScore,reviewCount,photos,title\n';
+  var header = 'itemNum,POSNum,avgScore,reviewCount,photos,title\n';
   writeStreamItem.write(header, 'utf8');
   let i = counter;
   let items;

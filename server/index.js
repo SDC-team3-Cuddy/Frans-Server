@@ -1,47 +1,49 @@
+require('newrelic');
 const express = require('express');
 const app = express();
 const db = require('./db/index.js');
 const model = require('./db/models/postgresqlQuery.js');
-const bodyParser = require('body-parser');
 const path = require('path');
-var compression = require('compression')
-const cors = require('cors');
+
+//const bodyParser = require('body-parser');
+//var compression = require('compression')
+//const cors = require('cors');
 
 app.use(express.static('public'));
 
 app.get('/api/itemsall', async (req, res) => {
   model.getAllItems(function(err, data) {
     if(err) {
-      res.end(err);
+      res.send(err);
     }
-    res.end(data);
+    res.send(data);
   });
 });
 
 app.get('/api/item', async (req, res) => {
   model.getItemById(req.headers.id, function(err, data) {
     if(err) {
-      res.end(err);
+      res.send(err);
     }
-    res.end(data);
+    res.send(data);
   });
 });
 
 app.post('/api/item', async (req,res) => {
   model.addToItem(req.headers, function(err, data) {
     if(err) {
-      res.end(err);
+      res.send(err);
     }
-    res.end(data);
+    res.send(data);
   });
 });
 
 app.delete('/api/item', async (req, res) => {
   model.deleteItemById(req.headers.id, function(err, data) {
     if(err) {
-      res.end(err);
+      res.send(err);
     }
-    res.end(data);
+    res.send(data);
   });
 });
 

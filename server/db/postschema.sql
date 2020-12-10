@@ -2,12 +2,12 @@ DROP TABLE IF EXISTS photos;
 DROP TABLE IF EXISTS items;
 
 CREATE TABLE items (
-  id bigserial PRIMARY KEY NOT NULL,
+  id serial PRIMARY KEY NOT NULL,
   itemNum INT NOT NULL,
   POSNum INT NOT NULL,
   avgScore INT NOT NULL,
   reviewCount INT NOT NULL,
-  photos VARCHAR(max) NOT NUll,
+  photos VARCHAR(1000) NOT NUll,
   title VARCHAR(255) NOT NULL
 );
 

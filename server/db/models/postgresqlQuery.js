@@ -1,5 +1,5 @@
-const {pg} = require('pg');
-const connection = new pg ({
+const {Pool} = require('pg');
+const connection = new Pool ({
   host: 'localhost',
   port: 5432,
   database: 'attempt',
