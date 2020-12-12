@@ -15,8 +15,9 @@ app.get('/api/itemsall', async (req, res) => {
   model.getAllItems(function(err, data) {
     if(err) {
       res.send(err);
+    } else {
+      res.send(data);
     }
-    res.send(data);
   });
 });
 
@@ -24,17 +25,19 @@ app.get('/api/item', async (req, res) => {
   model.getItemById(req.headers.id, function(err, data) {
     if(err) {
       res.send(err);
+    } else {
+      res.send(data);
     }
-    res.send(data);
   });
 });
 
 app.post('/api/item', async (req,res) => {
-  model.addToItem(req.headers, function(err, data) {
+  model.addToItems(req.headers, function(err, data) {
     if(err) {
       res.send(err);
+    } else {
+      res.send(data);
     }
-    res.send(data);
   });
 });
 
@@ -42,8 +45,9 @@ app.delete('/api/item', async (req, res) => {
   model.deleteItemById(req.headers.id, function(err, data) {
     if(err) {
       res.send(err);
+    } else {
+      res.send(data);
     }
-    res.send(data);
   });
 });
 
@@ -106,4 +110,8 @@ app.listen(port, function() {
 
 // app.listen(port, () => {
 //   console.log(`The Guitar Centaur rocks out to http://localhost:${port}`)
+// });
+
+// app.get('/loaderio-6b76e8f462a18c7c3f9649e1e8cfe386.txt', async (req,res) => {
+//   res.sendFile(__dirname + 'loaderio-6b76e8f462a18c7c3f9649e1e8cfe386.txt');
 // });

@@ -13,8 +13,9 @@ module.exports = {
       connection.query(query, (err, results) => {
         if (err) {
           callback(err);
-        }
+        } else {
         callback(err, results);
+        }
       });
     },
 
@@ -23,8 +24,9 @@ module.exports = {
       connection.query(query, (err, results) => {
         if (err) {
           callback(err);
-        }
+        } else {
         callback(err, results);
+        }
       });
     },
 
@@ -33,8 +35,9 @@ module.exports = {
       connection.query(query, (err, results) => {
         if (err) {
           callback(err);
-        }
+        } else {
         callback(err, results);
+        }
       });
     },
 
@@ -43,8 +46,9 @@ module.exports = {
       connection.query(query, (err, results) => {
         if (err) {
           callback(err);
-        }
+        } else {
         callback(err, results);
+        }
       });
     }
 }

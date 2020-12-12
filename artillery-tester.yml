@@ -1,0 +1,41 @@
+config:
+  target: "http://localhost:3001"
+  phases:
+    - duration: 60
+      arrivalRate: 5
+      rampup: 10
+    - duration: 60
+      arrivalRate: 10
+      rampup: 100
+    - duration: 60
+      arrivalRate: 100
+      rampup: 1000
+    - duration: 60
+      arrivalRate: 1000
+      name: Warm up
+      variables:
+        ids:
+          - '1'
+          - '2'
+          - '3'
+          - '4'
+          - '5'
+
+scenarios:
+  # We define one scenario:
+  - name: "Search and buy"
+    flow:
+      # Get the details of the product:
+      - get:
+          url: "/api/item"
+          header: {id: "{{ids}}"}
+      - post:
+          url: "/api/item"
+          header: {
+            "itemNum": "0",
+            "POSNum": "0",
+            "avgScore": "0",
+            "reviewCount": "0",
+            "photos": "test",
+            "title": "test"
+          }

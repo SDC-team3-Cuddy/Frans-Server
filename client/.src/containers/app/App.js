@@ -16,9 +16,9 @@ class App extends React.Component {
     this.getPhotosByItemID = this.getPhotosByItemID.bind(this);
   }
 
-  getItem (i) {
+  getItem () {
     console.log('this is the get request');
-    var id = i;
+    var id = '8';
     var self = this;
     axios.get(port + 'item', {
       headers: {
