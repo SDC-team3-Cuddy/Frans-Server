@@ -11,6 +11,10 @@ const path = require('path');
 
 app.use(express.static('public'));
 
+app.get('/loaderio-6b76e8f462a18c7c3f9649e1e8cfe386.txt', function(req, res){
+  res.sendFile(__dirname + '/loaderio-6b76e8f462a18c7c3f9649e1e8cfe386.txt');
+});
+
 app.get('/api/itemsall', async (req, res) => {
   model.getAllItems(function(err, data) {
     if(err) {
