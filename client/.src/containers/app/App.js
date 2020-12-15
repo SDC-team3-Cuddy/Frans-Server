@@ -17,8 +17,9 @@ class App extends React.Component {
   }
 
   getItem () {
+
     console.log('this is the get request');
-    var id = '8';
+    var id = '9';
     var self = this;
     axios.get(port + 'item', {
       headers: {
@@ -30,32 +31,6 @@ class App extends React.Component {
     }).catch(function(err) {
       console.log(err);
     });
-    //this.setState({product: self});
-    // let options = {
-    //   method: 'get',
-    //   url: '/api/items',
-    //   headers
-    // }
-
-    // axios(options)
-    //   .then((response) => {
-    //     let item =  response.data[Math.floor(Math.random() * response.data.length)];
-
-    //     let id = window.location.pathname;
-    //     if (id.length > 1) {
-    //       id = id.split('');
-    //       id.shift();
-    //       id = Number.parseInt(id.join(''));
-    //       item = response.data[id]
-    //     }
-
-    //     console.log(item);
-    //     this.setState({
-    //       item
-    //     });
-    //     this.getPhotosByItemID();
-    //   })
-
   }
 
   getPhotosByItemID () {

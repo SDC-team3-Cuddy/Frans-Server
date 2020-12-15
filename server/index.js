@@ -3,26 +3,16 @@ const express = require('express');
 const app = express();
 const db = require('./db/index.js');
 const model = require('./db/models/postgresqlQuery.js');
+const EC2Seed = require('./db/models/seedingEC2.js');
 const path = require('path');
 
 //const bodyParser = require('body-parser');
 //var compression = require('compression')
 //const cors = require('cors');
-
 app.use(express.static('public'));
 
 app.get('/loaderio-6b76e8f462a18c7c3f9649e1e8cfe386.txt', function(req, res){
   res.sendFile(__dirname + '/loaderio-6b76e8f462a18c7c3f9649e1e8cfe386.txt');
-});
-
-app.get('/api/itemsall', async (req, res) => {
-  model.getAllItems(function(err, data) {
-    if(err) {
-      res.send(err);
-    } else {
-      res.send(data);
-    }
-  });
 });
 
 app.get('/api/item', async (req, res) => {
@@ -62,6 +52,22 @@ app.listen(port, function() {
 
 
 //OLD CODE
+// app.get('/api/itemsall', async (req, res) => {
+//   EC2Seed.copyToEC2(function(err, data) {
+//     if(err) {
+//       res.send(err);
+//     } else {
+//     res.send(data);
+//     }
+//   });
+//   // model.getAllItems(function(err, data) {
+//   //   if(err) {
+//   //     res.send(err);
+//   //   } else {
+//   //     res.send(data);
+//   //   }
+//   // });
+// });
 // app.use(cors());
 // app.use(bodyParser.json());
 // app.use(compression());
