@@ -12,7 +12,7 @@ const path = require('path');
 app.use(express.static('public'));
 
 app.get('/loaderio-3a9f67577d82c3d78d79cbc86d8d6c61.txt', function(req, res){
-  res.sendFile(__dirname + '/loaderio-6b76e8f462a18c7c3f9649e1e8cfe386.txt');
+  res.sendFile(__dirname + '//loaderio-3a9f67577d82c3d78d79cbc86d8d6c61.txt');
 });
 
 app.get('/api/item', async (req, res) => {
