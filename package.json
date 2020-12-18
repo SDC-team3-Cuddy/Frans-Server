@@ -9,7 +9,7 @@
   "scripts": {
     "seed": "node --max-old-space-size=4000 server/db/seeding/writeCsv.js",
     "seeder": "node faker/seeder.js",
-    "server": "nodemon server/index.js",
+    "server": "node server/index.js",
     "production": "pm2 start server/index.js",
     "client": "npx webpack serve",
     "build": "webpack",
