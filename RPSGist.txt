@@ -1,0 +1,4 @@
+1000RPS - 35ms response time 0 error
+1500RPS - 250ms 0 error
+2000RPS- 550ms 0 error
+3000RPS - 700ms crashes after 1 minute of sustained load

@@ -33,21 +33,21 @@ class App extends React.Component {
     });
   }
 
-  getPhotosByItemID () {
-    let itemID = this.state.item.id;
+  // getPhotosByItemID () {
+  //   let itemID = this.state.item.id;
 
-    let options = {
-      method: 'post',
-      url: '/api/photos',
-      data: {itemID}
-    }
-    axios(options)
-      .then((response) => {
-        this.setState({
-          photos: response.data
-        });
-      })
-  }
+  //   let options = {
+  //     method: 'post',
+  //     url: '/api/photos',
+  //     data: {itemID}
+  //   }
+  //   axios(options)
+  //     .then((response) => {
+  //       this.setState({
+  //         photos: response.data
+  //       });
+  //     })
+  // }
 
   componentDidMount () {
     this.getItem();
